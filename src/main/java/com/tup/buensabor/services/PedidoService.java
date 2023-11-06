@@ -11,8 +11,9 @@ import java.util.List;
 
 public interface PedidoService extends BaseService<Pedido, Long>{
 
-    Pedido cambiarEstado (DTOCambiarEstado cambiarEstadoDTO) throws Exception;
+
     List<Pedido> search(String filtro) throws Exception;
     Page<Pedido> search(String filtro, Pageable pageable) throws Exception;
+    Pedido cambiarEstado (DTOCambiarEstado cambiarEstadoDTO) throws Exception;
 }
 

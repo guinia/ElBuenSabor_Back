@@ -22,6 +22,22 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
         this.pedidoRepository = pedidoRepository;
     }
 
+    //Cambiar estado pedido
+    @Override
+    public Pedido cambiarEstado(DTOCambiarEstado cambiarEstadoDTO) throws Exception{
+        try{
+            Pedido pedido = pedidoRepository.findById(cambiarEstadoDTO.getIdPedido()).get();
+
+            pedido.setEstado(cambiarEstadoDTO.getEstadoPedido());
+
+            pedidoRepository.save(pedido);
+
+            return pedido;
+        }catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
+
     @Override
     public List<Pedido> search(String filtro) throws Exception {
         try{
@@ -42,19 +58,4 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
         }
     }
 
-    //Cambiar estado pedido
-    @Override
-    public Pedido cambiarEstado(DTOCambiarEstado cambiarEstadoDTO) throws Exception{
-        try{
-            Pedido pedido = pedidoRepository.findById(cambiarEstadoDTO.getIdPedido()).get();
-
-            pedido.setEstado(cambiarEstadoDTO.getEstadoPedido());
-
-            pedidoRepository.save(pedido);
-
-            return pedido;
-        }catch (Exception e){
-            throw new Exception(e.getMessage());
-        }
-    }
 }
