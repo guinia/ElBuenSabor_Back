@@ -13,14 +13,14 @@ import java.util.List;
 public interface RubroArticuloInsumoRepository extends BaseRepository<RubroArticuloInsumo, Long> {
 
     @Query(
-            value = "SELECT * FROM rubro_articulo WHERE rubro_articulo.denominacion LIKE %:filtro%",
+            value = "SELECT * FROM rubro_articulo_insumo WHERE rubro_articulo_insumo.denominacion LIKE %:filtro%",
             nativeQuery = true
     )
     List<RubroArticuloInsumo> searchNativo(@Param("filtro") String filtro);
 
     @Query(
-            value = "SELECT * FROM rubro_articulo WHERE rubro_articulo.denominacion LIKE %:filtro%",
-            countQuery = "SELECT count(*) FROM rubro_articulo",
+            value = "SELECT * FROM rubro_articulo_insumo WHERE rubro_articulo_insumo.denominacion LIKE %:filtro%",
+            countQuery = "SELECT count(*) FROM rubro_articulo_insumo",
             nativeQuery = true
     )
     Page<RubroArticuloInsumo> searchNativo(@Param("filtro") String filtro, Pageable pageable);
