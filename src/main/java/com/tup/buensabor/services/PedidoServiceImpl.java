@@ -1,5 +1,6 @@
 package com.tup.buensabor.services;
 
+import com.tup.buensabor.dtos.DTOCambiarEstado;
 import com.tup.buensabor.entities.Pedido;
 import com.tup.buensabor.repositories.BaseRepository;
 import com.tup.buensabor.repositories.PedidoRepository;
@@ -37,6 +38,22 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
             Page<Pedido> pedido = pedidoRepository.searchNativo(filtro, pageable);
             return pedido;
         } catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    //Cambiar estado pedido
+    @Override
+    public Pedido cambiarEstado(DTOCambiarEstado cambiarEstadoDTO) throws Exception{
+        try{
+            Pedido pedido = pedidoRepository.findById(cambiarEstadoDTO.getIdPedido()).get();
+
+            pedido.setEstado(cambiarEstadoDTO.getEstadoPedido());
+
+            pedidoRepository.save(pedido);
+
+            return pedido;
+        }catch (Exception e){
             throw new Exception(e.getMessage());
         }
     }
