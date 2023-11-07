@@ -73,6 +73,11 @@ public class Pedido extends Base {
     @Builder.Default
     private List<DetallePedido> detalles = new ArrayList<>();
 
+    @NotNull
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_receta")
+    private Receta receta;
+
     public void agregarDetalle(DetallePedido detallePedido){
 
         detalles.add(detallePedido);

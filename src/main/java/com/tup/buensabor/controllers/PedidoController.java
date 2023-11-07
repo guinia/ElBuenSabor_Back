@@ -1,5 +1,6 @@
 package com.tup.buensabor.controllers;
 
+import com.tup.buensabor.dtos.DTOCambiarEstado;
 import com.tup.buensabor.entities.Pedido;
 import com.tup.buensabor.services.PedidoServiceImpl;
 import org.springframework.data.domain.Pageable;
@@ -32,6 +33,14 @@ public class PedidoController extends BaseControllerImpl<Pedido, PedidoServiceIm
         }
     }
 
+    @PutMapping("/cambiarEstado")
+    public ResponseEntity<?> search(@RequestBody DTOCambiarEstado dtoCambiarEstado) {
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.cambiarEstado(dtoCambiarEstado));
+        } catch (Exception e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
+        }
+    }
 
 
 }

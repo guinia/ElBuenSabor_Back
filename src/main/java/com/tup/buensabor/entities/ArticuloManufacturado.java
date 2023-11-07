@@ -41,8 +41,6 @@ public class ArticuloManufacturado extends Base {
     @Column(length = 500, name = "url_imagen")
     private String urlImagen;
 
-    @Column(length = 1000, name = "receta")
-    private String receta;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     @JoinColumn(name = "id_articulomanufacturado")
