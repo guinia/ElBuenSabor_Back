@@ -52,4 +52,11 @@ public interface ArticuloManufacturadoRepository extends BaseRepository<Articulo
     List<DTORankingArticulosManufacturados> filtradoPorProductoVendidoPorFecha(@Param("filtro1") Date filtro1, @Param("filtro2") Date filtro2);
 
 
+    @Query(
+            value = "SELECT * FROM ArticuloManufacturado INNER JOIN ArticuloManufacturado.rubroArticuloManufacturado " +
+                    "WHERE ArticuloManufacturado .rubroArticuloManufacturado = :denominacion"
+    )
+    public Page<ArticuloManufacturado> porRubro(@Param("denominacion") String denominacion, Pageable pageable);
+
+
 }

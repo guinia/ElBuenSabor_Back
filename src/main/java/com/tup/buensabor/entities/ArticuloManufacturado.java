@@ -52,6 +52,10 @@ public class ArticuloManufacturado extends Base {
     @JoinColumn(name = "id_receta")
     private Receta receta;
 
+    @NotNull
+    @ManyToOne()
+    @JoinColumn(name = "id_rubro_articulo_manufacturado")
+    private RubroArticuloManufacturado rubroArticuloManufacturado;
 
     //public void agregarDetalle(List<DetalleArticuloManufacturado> detalleArticuloManufacturado){
         //detalles.addAll(detalleArticuloManufacturado);
