@@ -1,5 +1,6 @@
 package com.tup.buensabor.services;
 
+import com.tup.buensabor.dtos.DTOCambiarDatos;
 import com.tup.buensabor.entities.Persona;
 import com.tup.buensabor.repositories.BaseRepository;
 import com.tup.buensabor.repositories.PersonaRepository;
@@ -37,6 +38,23 @@ public class PersonaServiceImpl extends BaseServiceImpl<Persona,Long> implements
             Page<Persona> cliente = personaRepository.searchNativo(filtro, pageable);
             return cliente;
         } catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
+    @Override
+    public Persona cambiarDatos(DTOCambiarDatos dtoCambiarDatos) throws Exception{
+        try{
+            Persona persona = personaRepository.findById(dtoCambiarDatos.getId()).get();
+
+            persona.setEmail(dtoCambiarDatos.getEmail());
+            persona.setApellido(dtoCambiarDatos.getApellido());
+            persona.setNombre(dtoCambiarDatos.getNombre());
+            persona.setTelefono(dtoCambiarDatos.getTelefono());
+
+            personaRepository.save(persona);
+
+            return persona;
+        }catch (Exception e){
             throw new Exception(e.getMessage());
         }
     }

@@ -6,7 +6,6 @@ import lombok.Data;
 public class DTOCambiarDatos {
     private Long id;
     private String email;
-    private Rol rol;
     private String nombre;
     private String apellido;
     private String telefono;
