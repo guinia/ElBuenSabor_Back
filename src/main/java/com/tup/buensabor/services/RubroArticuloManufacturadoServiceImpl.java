@@ -33,11 +33,12 @@ public class RubroArticuloManufacturadoServiceImpl extends BaseServiceImpl<Rubro
 
     @Override
     public Page<RubroArticuloManufacturado> search(String filtro, Pageable pageable) throws Exception {
-        try{
+        try {
             Page<RubroArticuloManufacturado> rubroArticuloManufacturado = rubroArticuloManufacturadoRepository.searchNativo(filtro, pageable);
             return rubroArticuloManufacturado;
-        } catch (Exception e){
+        } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }
 }
+

@@ -9,4 +9,5 @@ import java.util.List;
 public interface RubroArticuloManufacturadoService extends BaseService<RubroArticuloManufacturado, Long>{
     List<RubroArticuloManufacturado> search(String filtro) throws Exception;
     Page<RubroArticuloManufacturado> search(String filtro, Pageable pageable) throws Exception;
+
 }

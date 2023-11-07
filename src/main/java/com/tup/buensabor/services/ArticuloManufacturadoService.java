@@ -3,6 +3,7 @@ package com.tup.buensabor.services;
 import com.tup.buensabor.dtos.DTORankingArticulosManufacturados;
 import com.tup.buensabor.entities.ArticuloManufacturado;
 import com.tup.buensabor.entities.Pedido;
+import com.tup.buensabor.entities.RubroArticuloManufacturado;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -17,4 +18,5 @@ public interface ArticuloManufacturadoService extends BaseService<ArticuloManufa
 
     List<DTORankingArticulosManufacturados> filtradoPorProductoVendidoPorFecha(Date filtro1, Date filtro2) throws Exception;
 
+    Page<ArticuloManufacturado> porRubro(String denominacion, Pageable pageable) throws Exception;
 }

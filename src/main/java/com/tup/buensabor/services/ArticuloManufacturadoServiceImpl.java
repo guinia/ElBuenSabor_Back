@@ -63,4 +63,13 @@ public class ArticuloManufacturadoServiceImpl extends BaseServiceImpl<ArticuloMa
 
         }
     }
+    @Override
+    public Page<ArticuloManufacturado> porRubro(String denominacion, Pageable pageable) throws Exception{
+        try{
+            Page<ArticuloManufacturado> articuloManufacturado =articuloManufacturadoRepository.porRubro(denominacion,pageable);
+            return articuloManufacturado;
+        }catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
 }
