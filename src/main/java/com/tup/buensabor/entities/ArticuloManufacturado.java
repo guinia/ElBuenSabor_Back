@@ -47,6 +47,12 @@ public class ArticuloManufacturado extends Base {
     @Builder.Default
     private List<DetalleArticuloManufacturado> detalles = new ArrayList<>();
 
+    @NotNull
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_receta")
+    private Receta receta;
+
+
     //public void agregarDetalle(List<DetalleArticuloManufacturado> detalleArticuloManufacturado){
         //detalles.addAll(detalleArticuloManufacturado);
     //}

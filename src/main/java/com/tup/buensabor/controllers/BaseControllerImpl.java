@@ -63,6 +63,7 @@ public abstract class BaseControllerImpl <E extends Base, S extends BaseServiceI
             return ResponseEntity.status(HttpStatus.OK).body(servicio.update(id, entity));
         }
         catch (Exception e){
+            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("{\"error\":\"Error, por favor intente más tarde\"}");
         }
     }

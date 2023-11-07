@@ -38,8 +38,11 @@ public class Factura extends Base {
     private String mpPaymentType;
 
     @NotNull
-    @Column(name = "formaPago")
+    @Column(name = "FORMAPAGO")
+    @Enumerated(EnumType.STRING)
     private FormaPago formaPago;
+
+
 
     @NotNull
     @Column(name = "total_venta", precision = 10, scale = 2)
