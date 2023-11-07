@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(path = "api/v1/RubrosArticulos")
-public class RubroArticuloController extends BaseControllerImpl<RubroArticuloInsumo, RubroArticuloInsumoServiceImpl> {
+@RequestMapping(path = "api/v1/RubroArticuloInsumo")
+public class RubroArticuloInsumoController extends BaseControllerImpl<RubroArticuloInsumo, RubroArticuloInsumoServiceImpl> {
 
 
     @GetMapping("/search")
