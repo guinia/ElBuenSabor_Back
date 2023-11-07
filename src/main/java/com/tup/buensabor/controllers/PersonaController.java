@@ -1,5 +1,6 @@
 package com.tup.buensabor.controllers;
 
+import com.tup.buensabor.dtos.DTOCambiarDatos;
 import com.tup.buensabor.entities.Persona;
 import com.tup.buensabor.services.PersonaServiceImpl;
 import org.springframework.data.domain.Pageable;
@@ -27,4 +28,13 @@ public class PersonaController extends BaseControllerImpl<Persona, PersonaServic
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
         }
     }
+    @PutMapping("/cambiarDatos")
+    public ResponseEntity<?> search(@RequestBody DTOCambiarDatos dtoCambiarDatos) {
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.cambiarDatos(dtoCambiarDatos));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error. Por favor, intente más tarde.\"}");
+        }
+    }
+
 }
