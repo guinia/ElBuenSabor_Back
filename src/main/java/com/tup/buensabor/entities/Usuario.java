@@ -25,7 +25,7 @@ public class Usuario extends Base {
     private String username;
 
     @NotNull
-    @Column (name = "contraseña", nullable = false)
+    @Column (name = "password", nullable = false)
     private String password;
 
 

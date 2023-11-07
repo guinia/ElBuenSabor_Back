@@ -14,13 +14,13 @@ import java.util.List;
 public interface FacturaRepository extends BaseRepository<Factura, Long> {
 
     @Query(
-            value = "SELECT * FROM factura WHERE factura.formapago LIKE %:filtro%",
+            value = "SELECT * FROM factura WHERE factura.formaPago LIKE %:filtro%",
             nativeQuery = true
     )
     List<Factura> searchNativo(@Param("filtro") String filtro);
 
     @Query(
-            value = "SELECT * FROM factura WHERE factura.formapago LIKE %:filtro%",
+            value = "SELECT * FROM factura WHERE factura.formaPago LIKE %:filtro%",
             countQuery = "SELECT count(*) FROM factura",
             nativeQuery = true
     )

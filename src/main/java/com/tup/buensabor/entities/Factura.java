@@ -38,6 +38,7 @@ public class Factura extends Base {
     private String mpPaymentType;
 
     @NotNull
+    @Column(name = "formaPago")
     private FormaPago formaPago;
 
     @NotNull

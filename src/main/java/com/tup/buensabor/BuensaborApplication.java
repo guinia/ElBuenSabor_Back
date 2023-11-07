@@ -61,54 +61,67 @@ public class BuensaborApplication {
 			Usuario usuario1 = Usuario.builder()
 					.username("tomas.guinazu")
 					.auth0Id("1")
-					.build();
+                    .password("12345")
+                    .build();
 			Usuario usuario2 = Usuario.builder()
 					.username("lucia.burky")
 					.auth0Id("2")
+                    .password("12345")
 					.build();
             Usuario usuario3 = Usuario.builder()
                     .username("tomas.mezza")
                     .auth0Id("3")
+                    .password("12345")
                     .build();
             Usuario usuario4 = Usuario.builder()
                     .username("citro.cami")
                     .auth0Id("4")
+                    .password("12345")
                     .build();
             Usuario usuario5 = Usuario.builder()
                     .username("maxi.costa")
                     .auth0Id("5")
+                    .password("12345")
                     .build();
             Usuario usuario6 = Usuario.builder()
                     .username("santi.vicent")
                     .auth0Id("6")
+                    .password("12345")
                     .build();
             Usuario usuario7 = Usuario.builder()
                     .username("zarate.sofi")
                     .auth0Id("7")
+                    .password("12345")
                     .build();
             Usuario usuario8 = Usuario.builder()
                     .username("lucas.ortiz")
                     .auth0Id("8")
+                    .password("12345")
                     .build();
             Usuario usuario9 = Usuario.builder()
                     .username("emiliano.cisterna")
                     .auth0Id("9")
+                    .password("12345")
                     .build();
             Usuario usuario10 = Usuario.builder()
                     .username("jadur.dolores")
                     .auth0Id("10")
+                    .password("12345")
                     .build();
             Usuario usuario11 = Usuario.builder()
                     .username("velasco.victoria")
                     .auth0Id("11")
+                    .password("12345")
                     .build();
             Usuario usuario12 = Usuario.builder()
                     .username("yacante.pablo")
                     .auth0Id("12")
+                    .password("12345")
                     .build();
 			Usuario usuario13 = Usuario.builder()
 					.username("agustina.linares")
 					.auth0Id("13")
+                    .password("12345")
 					.build();
 
 			usuario1.setFechaAlta(fecha);

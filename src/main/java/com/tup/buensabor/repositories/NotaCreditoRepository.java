@@ -28,9 +28,9 @@ public interface NotaCreditoRepository extends BaseRepository<NotaCredito,Long> 
     )
     Page<NotaCredito> searchNativo(@Param("filtro") String filtro, Pageable pageable);
 
-    @Query(value = "SELECT SUM(monto) FROM nota_credito WHERE nota_credito.fechaAlta BETWEEN :desde AND :hasta",
-            nativeQuery = true)
-    BigDecimal searchMontoTotal(@Param("inicio") Date desde, @Param("hasta") Date hasta);
+    @Query(value = "SELECT SUM(monto) FROM nota_credito as nc WHERE nc.fechaAlta BETWEEN :desde AND :hasta"
+            , nativeQuery = true)
+    public BigDecimal searchMontoTotal(@Param("desde") Date desde, @Param("hasta") Date hasta);
 
 
 }

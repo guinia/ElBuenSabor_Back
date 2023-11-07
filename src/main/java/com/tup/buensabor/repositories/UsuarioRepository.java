@@ -15,18 +15,18 @@ import java.util.List;
 public interface UsuarioRepository extends BaseRepository<Usuario, Long> {
 
     @Query(
-            value = "SELECT * FROM usuario WHERE usuario.username LIKE :usuario AND usuario.password LIKE :password",
+            value = "SELECT * FROM usuario WHERE usuario.username LIKE :username AND usuario.password LIKE :password",
             nativeQuery = true
     )
-    List<Usuario> searchNativo(@Param("filtro") String username, String password);
+    List<Usuario> searchNativo(@Param("username") String username,@Param("password") String password);
 
     @Transactional
     @Modifying
     @Query(
-            value = "UPDATE usuario SET password = :contraseniaNueva WHERE id = :id",
+            value = "UPDATE usuario SET password = :contrasenaNueva WHERE id = :id",
             nativeQuery = true
     )
-    public int cambiarContrasena(@Param("id") Long id,
+    public boolean cambiarContrasena(@Param("id") Long id,
                                  @Param("contrasenaNueva") String contrasenaNueva);
 
   /*  @Query(
