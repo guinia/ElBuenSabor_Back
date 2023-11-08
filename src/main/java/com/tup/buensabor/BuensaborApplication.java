@@ -22,6 +22,9 @@ public class BuensaborApplication {
 	@Autowired
 	ArticuloManufacturadoRepository articuloManufacturadoRepository;
 
+	@Autowired
+	RubroArticuloManufacturadoRepository rubroArticuloManufacturadoRepository;
+
 	//@Autowired
 	//DetalleArticuloManufacturadoRepository detalleArticuloManufacturadoRepository;
 
@@ -413,13 +416,13 @@ public class BuensaborApplication {
 
 			System.out.println("----------------ESTOY----FUNCIONANDO---------------------");
 
-			RubroArticuloInsumo rubro1 = RubroArticuloInsumo.builder()
+			RubroArticuloManufacturado rubro1 = RubroArticuloManufacturado.builder()
 					.denominacion("Hamburguesas")
 					.build();
-			RubroArticuloInsumo rubro2 = RubroArticuloInsumo.builder()
+			RubroArticuloManufacturado rubro2 = RubroArticuloManufacturado.builder()
 					.denominacion("Pizzas")
 					.build();
-			RubroArticuloInsumo rubro3 = RubroArticuloInsumo.builder()
+			RubroArticuloManufacturado rubro3 = RubroArticuloManufacturado.builder()
 					.denominacion("Comida Rapida")
 					.build();
 
@@ -452,9 +455,9 @@ public class BuensaborApplication {
 			//rubro3.agregarSubRubro(rubro1);
 			//rubro3.agregarSubRubro(rubro2);
 
-			rubroArticuloInsumoRepository.save(rubro3);
-			rubroArticuloInsumoRepository.save(rubro1);
-			rubroArticuloInsumoRepository.save(rubro2);
+			rubroArticuloManufacturadoRepository.save(rubro3);
+			rubroArticuloManufacturadoRepository.save(rubro1);
+			rubroArticuloManufacturadoRepository.save(rubro2);
 			rubroArticuloInsumoRepository.save(rubro4);
 			rubroArticuloInsumoRepository.save(rubro5);
 
@@ -602,6 +605,8 @@ public class BuensaborApplication {
 					.urlImagen("")
 					.build();
 
+			hamburguesa1.setRubroArticuloManufacturado(rubro1);
+			hamburguesa2.setRubroArticuloManufacturado(rubro2);
 			hamburguesa1.setFechaAlta(fecha);
 			hamburguesa2.setFechaAlta(fecha);
 
