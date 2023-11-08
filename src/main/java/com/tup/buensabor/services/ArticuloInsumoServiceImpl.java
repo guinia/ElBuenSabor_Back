@@ -1,7 +1,6 @@
 package com.tup.buensabor.services;
 
 import com.tup.buensabor.entities.ArticuloInsumo;
-import com.tup.buensabor.entities.ArticuloManufacturado;
 import com.tup.buensabor.repositories.ArticuloInsumoRepository;
 import com.tup.buensabor.repositories.BaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +37,15 @@ public class ArticuloInsumoServiceImpl extends BaseServiceImpl<ArticuloInsumo,Lo
             Page<ArticuloInsumo> articuloInsumo = articuloInsumoRepository.searchNativo(filtro, pageable);
             return articuloInsumo;
         } catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
+    @Override
+    public Page<ArticuloInsumo> getStockBajo(Pageable pageable) throws Exception{
+        try{
+            Page<ArticuloInsumo> insumo=articuloInsumoRepository.getStockBajo(pageable);
+            return insumo;
+        }catch (Exception e){
             throw new Exception(e.getMessage());
         }
     }

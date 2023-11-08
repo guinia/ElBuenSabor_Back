@@ -53,8 +53,10 @@ public interface ArticuloManufacturadoRepository extends BaseRepository<Articulo
 
 
     @Query(
-            value = "SELECT * FROM ArticuloManufacturado INNER JOIN ArticuloManufacturado.rubroArticuloManufacturado " +
-                    "WHERE ArticuloManufacturado .rubroArticuloManufacturado = :denominacion",
+            value = "SELECT *" +
+                    "FROM ArticuloManufacturado" +
+                    "INNER JOIN rubroArticuloManufacturado ON ArticuloManufacturado.rubroArticuloManufacturado = rubroArticuloManufacturado.id" +
+                    "WHERE ArticuloManufacturado.rubroArticuloManufacturado = :denominacion",
             nativeQuery = true
     )
     public Page<ArticuloManufacturado> porRubro(@Param("denominacion") String denominacion, Pageable pageable);

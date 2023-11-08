@@ -32,5 +32,13 @@ public class ArticuloInsumoController extends BaseControllerImpl<ArticuloInsumo,
         }
     }
 
+    @GetMapping("/stockBajo")
+    public ResponseEntity<?> search(@RequestParam Pageable pageable) {
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.getStockBajo(pageable));
+        } catch (Exception e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
+        }
+    }
 
 }
