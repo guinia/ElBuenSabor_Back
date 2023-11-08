@@ -41,4 +41,13 @@ public class PersonaController extends BaseControllerImpl<Persona, PersonaServic
         }
     }
 
+    @PutMapping("/rankingPersonas")
+    public ResponseEntity<?> rankingPersonas(@RequestParam Date desde, @RequestParam Date hasta) {
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.rankingPersonas(desde, hasta));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error. Por favor, intente más tarde.\"}");
+        }
+    }
+
 }

@@ -15,4 +15,6 @@ public interface PersonaService extends BaseService<Persona, Long>{
 
     Persona cambiarDatos(DTOCambiarDatos dtoCambiarDatos) throws Exception;
 
+    List<DTORankingPersonas> rankingPersonas(Date desde, Date hasta) throws Exception;
+
 }

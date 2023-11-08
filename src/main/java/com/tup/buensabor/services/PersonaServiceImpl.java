@@ -61,4 +61,13 @@ public class PersonaServiceImpl extends BaseServiceImpl<Persona,Long> implements
         }
     }
 
+    @Override
+    public List<DTORankingPersonas> rankingPersonas(Date desde, Date hasta) throws Exception{
+        try{
+            List<DTORankingPersonas> personas = personaRepository.rankingPersonas(desde,hasta);
+            return personas;
+        }catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
 }
