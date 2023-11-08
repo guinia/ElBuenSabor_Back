@@ -8,6 +8,7 @@ import com.tup.buensabor.repositories.PersonaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -62,7 +63,7 @@ public class PersonaServiceImpl extends BaseServiceImpl<Persona,Long> implements
     }
 
     @Override
-    public List<DTORankingPersonas> rankingPersonas(Date desde, Date hasta) throws Exception{
+    public List<DTORankingPersonas> rankingPersonas(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date desde, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date hasta) throws Exception{
         try{
             List<DTORankingPersonas> personas = personaRepository.rankingPersonas(desde,hasta);
             return personas;

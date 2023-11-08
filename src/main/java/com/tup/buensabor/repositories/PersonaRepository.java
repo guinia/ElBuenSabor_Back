@@ -27,7 +27,7 @@ public interface PersonaRepository extends BaseRepository<Persona, Long> {
     Page<Persona> searchNativo(@Param("filtro") String filtro, Pageable pageable);
 
     @Query(
-            value = "SELECT sum(f.totalVenta) as total, p as persona, count(e.id) as cantidadPedidos " +
+            value = "SELECT sum(f.total_venta) as total, p.nombre as persona, count(e.id) as cantidadPedidos " +
                     "FROM persona as p " +
                     "LEFT JOIN pedido as e ON e.id_cliente LIKE p.id " +
                     "LEFT JOIN factura as f ON f.id LIKE e.id_factura " +
