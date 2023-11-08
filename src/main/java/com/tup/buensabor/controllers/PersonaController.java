@@ -4,6 +4,7 @@ import com.tup.buensabor.dtos.DTOCambiarDatos;
 import com.tup.buensabor.entities.Persona;
 import com.tup.buensabor.services.PersonaServiceImpl;
 import org.springframework.data.domain.Pageable;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -41,8 +42,8 @@ public class PersonaController extends BaseControllerImpl<Persona, PersonaServic
         }
     }
 
-    @PutMapping("/rankingPersonas")
-    public ResponseEntity<?> rankingPersonas(@RequestParam Date desde, @RequestParam Date hasta) {
+    @GetMapping("/rankingPersonas")
+    public ResponseEntity<?> rankingPersonas(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)  Date desde, @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)  Date hasta) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(servicio.rankingPersonas(desde, hasta));
         } catch (Exception e) {
