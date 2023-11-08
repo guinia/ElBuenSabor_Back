@@ -38,6 +38,7 @@ public class UsuarioServiceImpl extends BaseServiceImpl<Usuario,Long> implements
             Usuario usuario = usuarioRepository.getReferenceById(dtoCambiarContraseña.getId());
             if (usuario.getPassword().equals(dtoCambiarContraseña.getContraseniaActual())) {
                 usuarioRepository.cambiarContrasena(dtoCambiarContraseña.getId(), dtoCambiarContraseña.getContraseniaNueva());
+
                 return true;
             }else{
                 return false;
@@ -47,15 +48,4 @@ public class UsuarioServiceImpl extends BaseServiceImpl<Usuario,Long> implements
         }
     }
 
-   /* @Override
-    public Page<Usuario> search(String username, String password,Pageable pageable) throws Exception {
-        try {
-            Page<Usuario> entities = usuarioRepository.searchNativo(username, password, pageable);
-            return entities;
-        } catch (Exception e) {
-            throw new Exception(e.getMessage());
-        }
-    }
-
-    */
 }

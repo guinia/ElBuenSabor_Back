@@ -41,6 +41,7 @@ public class Pedido extends Base {
     private BigDecimal totalCosto;
 
     @NotNull
+    @Column(name = "estadoPedido")
     @Enumerated(EnumType.STRING)
     private EstadoPedido estado;
 

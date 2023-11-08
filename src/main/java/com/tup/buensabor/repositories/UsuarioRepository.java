@@ -1,8 +1,6 @@
 package com.tup.buensabor.repositories;
 
 import com.tup.buensabor.entities.Usuario;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -26,17 +24,7 @@ public interface UsuarioRepository extends BaseRepository<Usuario, Long> {
             value = "UPDATE usuario SET password = :contrasenaNueva WHERE id = :id",
             nativeQuery = true
     )
-    public boolean cambiarContrasena(@Param("id") Long id,
+    public int cambiarContrasena(@Param("id") Long id,
                                  @Param("contrasenaNueva") String contrasenaNueva);
 
-  /*  @Query(
-            value = "SELECT * FROM usuario WHERE usuario.username LIKE %:filtro% AND usuario.password LIKE %:filtro%",
-            countQuery = "SELECT count(*) FROM usuario",
-            nativeQuery = true
-    )
-    Page<Usuario> searchNativo(@Param("filtro") String filtro, Pageable pageable);
-
-    comentado por que nunca traeriamos listas de usuarios, sino de personas y menos paginables
-
-   */
 }

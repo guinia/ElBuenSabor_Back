@@ -11,10 +11,8 @@ public interface UsuarioService extends BaseService<Usuario, Long> {
 
     List<Usuario> search(String username, String password) throws Exception;
 
-    boolean cambiarContrasena(DTOCambiarContraseña dtoCambiarContraseña) throws Exception;
+    public boolean cambiarContrasena(DTOCambiarContraseña dtoCambiarContraseña) throws Exception;
 
-    /*Page<Usuario> search(String filtro, Pageable pageable) throws Exception;
 
-     */
 
 }

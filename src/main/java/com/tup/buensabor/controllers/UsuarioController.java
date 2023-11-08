@@ -31,14 +31,4 @@ public class UsuarioController extends BaseControllerImpl<Usuario, UsuarioServic
         }
     }
 
-   /* @GetMapping("/searchPaged")
-    public ResponseEntity<?> searchPaged(@RequestParam String filtro, Pageable pageable) {
-        try {
-            return ResponseEntity.status(200).body(servicio.search(filtro, pageable));
-        } catch (Exception e) {
-            return ResponseEntity.status(500).body("{\"error\":\"Error, por favor intente más tarde.\"}");
-        }
-    }
-
-    */
 }
