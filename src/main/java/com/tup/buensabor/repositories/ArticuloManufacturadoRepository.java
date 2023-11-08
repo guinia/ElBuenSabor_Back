@@ -53,13 +53,15 @@ public interface ArticuloManufacturadoRepository extends BaseRepository<Articulo
 
 
     @Query(
-            value = "SELECT *" +
-                    "FROM ArticuloManufacturado" +
-                    "INNER JOIN rubroArticuloManufacturado ON ArticuloManufacturado.rubroArticuloManufacturado = rubroArticuloManufacturado.id" +
-                    "WHERE ArticuloManufacturado.rubroArticuloManufacturado = :denominacion",
+            value = "SELECT * " +
+                    "FROM articulo_manufacturado as a " +
+                    "LEFT JOIN rubro_articulo_manufacturado ON articulo_manufacturado.rubro_articulo_manufacturado = rubro_articulo_manufacturado.id " +
+                    "WHERE rubro_articulo_manufacturado.denominacion = :denominacion " +
+                    "GROUP BY articulo_manufacturado.denominacion DESC " +
+                    "ORDER BY articulo_manufacturado.denominacion DESC",
             nativeQuery = true
     )
-    public Page<ArticuloManufacturado> porRubro(@Param("denominacion") String denominacion, Pageable pageable);
+    Page<ArticuloManufacturado> porRubro(@Param("denominacion") String denominacion, Pageable pageable);
 
 
 }
