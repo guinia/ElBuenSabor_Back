@@ -1,4 +1,4 @@
-package com.tup.buensabor.Auth;
+package com.tup.buensabor.Security.Auth;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
