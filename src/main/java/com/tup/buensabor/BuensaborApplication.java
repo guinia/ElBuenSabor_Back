@@ -481,42 +481,42 @@ public class BuensaborApplication {
 					.precioCompra(BigDecimal.valueOf(300))
 					.stockActual(BigDecimal.valueOf(10))
 					.stockMinimo(BigDecimal.valueOf(3))
-					.urlImagen("https://static.vecteezy.com/system/resources/previews/021/096/216/original/lettuce-leaf-isolated-png.png")
+					.urlImagen("https://github.com/guinia/ElBuenSabor_Back/blob/Imagenes/lettuce-leaf-isolated-png.webp")
 					.build();
 			ArticuloInsumo articuloInsumo2 = ArticuloInsumo.builder()
 					.denominacion("tomate")
 					.precioCompra(BigDecimal.valueOf(400))
 					.stockActual(BigDecimal.valueOf(13))
 					.stockMinimo(BigDecimal.valueOf(2))
-					.urlImagen("https://static.vecteezy.com/system/resources/previews/013/442/147/non_2x/tomatoes-on-a-transparent-background-free-png.png")
+					.urlImagen("https://github.com/guinia/ElBuenSabor_Back/blob/Imagenes/tomatoes-on-a-transparent-background-free-png.webp")
 					.build();
 			ArticuloInsumo articuloInsumo3 = ArticuloInsumo.builder()
 					.denominacion("panceta")
 					.precioCompra(BigDecimal.valueOf(2600))
 					.stockActual(BigDecimal.valueOf(4))
 					.stockMinimo(BigDecimal.valueOf(1))
-					.urlImagen("https://d2r9epyceweg5n.cloudfront.net/stores/001/228/465/products/panceta-feteada1-8743f2f15e5019306015933727609110-640-0.png")
+					.urlImagen("https://github.com/guinia/ElBuenSabor_Back/blob/Imagenes/panceta-feteada1-8743f2f15e5019306015933727609110-640-0.png")
 					.build();
 			ArticuloInsumo articuloInsumo4 = ArticuloInsumo.builder()
 					.denominacion("carne")
 					.precioCompra(BigDecimal.valueOf(1700))
 					.stockActual(BigDecimal.valueOf(23))
 					.stockMinimo(BigDecimal.valueOf(8))
-					.urlImagen("https://img.freepik.com/foto-gratis/carne-cerdo-cruda-aislado_1203-6736.jpg")
+					.urlImagen("https://github.com/guinia/ElBuenSabor_Back/blob/Imagenes/carne-cerdo-cruda-aislado_1203-6736.avif")
 					.build();
 			ArticuloInsumo articuloInsumo5 = ArticuloInsumo.builder()
 					.denominacion("cebolla")
 					.precioCompra(BigDecimal.valueOf(700))
 					.stockActual(BigDecimal.valueOf(14))
 					.stockMinimo(BigDecimal.valueOf(5))
-					.urlImagen("https://static.vecteezy.com/system/resources/previews/027/216/322/original/onion-onion-transparent-background-ai-generated-free-png.png")
+					.urlImagen("https://github.com/guinia/ElBuenSabor_Back/blob/Imagenes/onion-onion-transparent-background-ai-generated-free-png.webp")
 					.build();
 			ArticuloInsumo articuloInsumo6 = ArticuloInsumo.builder()
 					.denominacion("pan")
 					.precioCompra(BigDecimal.valueOf(550))
 					.stockActual(BigDecimal.valueOf(50))
 					.stockMinimo(BigDecimal.valueOf(20))
-					.urlImagen("https://img.freepik.com/foto-gratis/pan-hamburguesa-espacio-blanco_1232-507.jpg?size=626&ext=jpg&ga=GA1.1.1826414947.1699401600&semt=ais")
+					.urlImagen("https://github.com/guinia/ElBuenSabor_Back/blob/Imagenes/pan-hamburguesa-espacio-blanco_1232-507.avif")
 					.build();
 
 			articuloInsumo1.setFechaAlta(fecha);
