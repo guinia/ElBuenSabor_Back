@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(path = "api/v1/pedidos")
 public class PedidoController extends BaseControllerImpl<Pedido, PedidoServiceImpl>{
 
-
-
     @GetMapping("/search")
     public ResponseEntity<?> search(@RequestParam String filtro){
         try {

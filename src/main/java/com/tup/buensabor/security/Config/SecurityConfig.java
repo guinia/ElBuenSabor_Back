@@ -36,11 +36,18 @@ public class SecurityConfig {
                                 .requestMatchers(new AntPathRequestMatcher("/auth/**")).permitAll()
                                 //Para H2
                                 .requestMatchers(PathRequest.toH2Console()).permitAll()
-                                .requestMatchers(new AntPathRequestMatcher("/api/v1/articulosinsumos")).hasAnyAuthority("ADMINISTRADOR", "COCINERO")
-                                .requestMatchers(new AntPathRequestMatcher("/api/v1/articulosmanufacturados")).hasAnyAuthority("ADMINISTRADOR", "COCINERO", "DELIVERY", "CAJERO", "CLIENTE")
-                                .requestMatchers(new AntPathRequestMatcher("/api/v1/facturas")).hasAnyAuthority("ADMINISTRADOR", "DELIVERY", "CAJERO", "CLIENTE")
-                                .requestMatchers(new AntPathRequestMatcher("/api/v1/pedidos")).hasAnyAuthority("ADMINISTRADOR", "COCINERO", "DELIVERY", "CAJERO", "CLIENTE")
-
+                                .requestMatchers(new AntPathRequestMatcher("/api/v1/articulosinsumos/**")).hasAnyAuthority("ADMINISTRADOR", "COCINERO")
+                                .requestMatchers(new AntPathRequestMatcher("/api/v1/articulosmanufacturados/**")).hasAnyAuthority("ADMINISTRADOR", "COCINERO", "DELIVERY", "CAJERO", "CLIENTE")
+                                .requestMatchers(new AntPathRequestMatcher("/api/v1/facturas/**")).hasAnyAuthority("ADMINISTRADOR", "DELIVERY", "CAJERO", "CLIENTE")
+                                .requestMatchers(new AntPathRequestMatcher("/api/v1/pedidos/**")).hasAnyAuthority("ADMINISTRADOR", "COCINERO", "DELIVERY", "CAJERO", "CLIENTE")
+                                .requestMatchers(new AntPathRequestMatcher("/api/v1/recetas/**")).hasAnyAuthority("ADMINISTRADOR", "COCINERO")
+                                .requestMatchers(new AntPathRequestMatcher("/api/v1/RubroArticuloInsumo/**")).hasAnyAuthority("ADMINISTRADOR", "COCINERO")
+                                .requestMatchers(new AntPathRequestMatcher("/api/v1/RubroArticuloManufacturado/**")).hasAnyAuthority("ADMINISTRADOR", "COCINERO")
+                                .requestMatchers(new AntPathRequestMatcher("/api/v1/domicilios/**")).hasAnyAuthority("ADMINISTRADOR", "CLIENTE")
+                                .requestMatchers(new AntPathRequestMatcher("/api/v1/usuarios/**")).hasAnyAuthority("CLIENTE", "ADMINISTRADOR","COCINERO", "DELIVERY", "CAJERO")
+                                .requestMatchers(new AntPathRequestMatcher("/api/v1/notascredito/**")).hasAnyAuthority("ADMINISTRADOR", "CAJERO")
+                                .requestMatchers(new AntPathRequestMatcher("/api/v1/personas/**")).hasAnyAuthority("CLIENTE", "ADMINISTRADOR","COCINERO", "DELIVERY", "CAJERO")
+                                .requestMatchers(new AntPathRequestMatcher("/api/v1/unidadmedida/**")).hasAnyAuthority("ADMINISTRADOR","COCINERO")
 
                                 //ver si esto se saca
                                 .anyRequest().authenticated()
