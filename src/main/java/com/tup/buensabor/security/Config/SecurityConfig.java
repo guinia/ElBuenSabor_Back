@@ -2,6 +2,7 @@ package com.tup.buensabor.security.Config;
 
 import com.tup.buensabor.security.Jwt.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -31,11 +32,20 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authRequest ->
                         authRequest
-                                //Para autenticacion--> VER PQ LE TUVE Q AGREGAR ESTO Q DECIA CHAT GPT PQ SINO TIRABA ERROR
+                                //Para autenticacion-->
                                 .requestMatchers(new AntPathRequestMatcher("/auth/**")).permitAll()
+                                //Para H2
+                                .requestMatchers(PathRequest.toH2Console()).permitAll()
+                                .requestMatchers(new AntPathRequestMatcher("/api/v1/articulosinsumos")).hasAnyAuthority("ADMINISTRADOR", "COCINERO")
+                                .requestMatchers(new AntPathRequestMatcher("/api/v1/articulosmanufacturados")).hasAnyAuthority("ADMINISTRADOR", "COCINERO", "DELIVERY", "CAJERO", "CLIENTE")
+                                .requestMatchers(new AntPathRequestMatcher("/api/v1/facturas")).hasAnyAuthority("ADMINISTRADOR", "DELIVERY", "CAJERO", "CLIENTE")
+                                .requestMatchers(new AntPathRequestMatcher("/api/v1/pedidos")).hasAnyAuthority("ADMINISTRADOR", "COCINERO", "DELIVERY", "CAJERO", "CLIENTE")
+
+
+                                //ver si esto se saca
                                 .anyRequest().authenticated()
                 )
-
+                .headers((headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable))) //H2
                 .sessionManagement(sessionManager ->
                         sessionManager
                                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
