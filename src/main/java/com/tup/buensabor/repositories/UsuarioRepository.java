@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface UsuarioRepository extends BaseRepository<Usuario, Long> {
@@ -27,4 +28,6 @@ public interface UsuarioRepository extends BaseRepository<Usuario, Long> {
     public int cambiarContrasena(@Param("id") Long id,
                                  @Param("contrasenaNueva") String contrasenaNueva);
 
+
+    Optional<Usuario> findByUsername(String username);
 }
