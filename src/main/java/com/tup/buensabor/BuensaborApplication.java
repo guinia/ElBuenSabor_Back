@@ -10,9 +10,12 @@ import org.springframework.context.annotation.Bean;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootApplication
 public class BuensaborApplication {
+	private final PasswordEncoder passwordEncoder;
+
 	@Autowired
 	PersonaRepository personaRepository;
 
@@ -45,6 +48,10 @@ public class BuensaborApplication {
 
 	@Autowired
 	UnidadMedidaRepository unidadMedidaRepository;
+
+	public BuensaborApplication(PasswordEncoder passwordEncoder) {
+		this.passwordEncoder = passwordEncoder;
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(
@@ -79,7 +86,7 @@ public class BuensaborApplication {
             Usuario usuario4 = Usuario.builder()
                     .username("citro.cami")
                     .auth0Id("4")
-                    .password("12345")
+                    .password(passwordEncoder.encode("12345"))
                     .build();
             Usuario usuario5 = Usuario.builder()
                     .username("maxi.costa")

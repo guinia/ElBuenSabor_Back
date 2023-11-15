@@ -23,6 +23,7 @@ public class AuthService {
 
     public AuthResponse login(LoginRequest request) {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
+
         UserDetails usuario = usuarioRepository.findByUsername(request.getUsername()).orElseThrow();
         String token = jwtService.getToken(usuario);
         return AuthResponse.builder()
@@ -35,6 +36,7 @@ public class AuthService {
                 .username(request.getUsername())
                 .password(passwordEncoder.encode( request.getPassword()))
                 .role(Role.CLIENTE) //revisar, le puse cliente, en el video le ponia de tipo usuario
+                .auth0Id(request.getAuth0Id())
                 .build();
 
         usuarioRepository.save(usuario);
