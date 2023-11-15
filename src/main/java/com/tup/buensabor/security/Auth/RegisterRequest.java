@@ -1,5 +1,6 @@
 package com.tup.buensabor.security.Auth;
 
+import com.tup.buensabor.security.User.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,6 +19,7 @@ public class RegisterRequest {
     String telefono;
     String email;
     String auth0Id;
+    Role rol;
 
 
 }

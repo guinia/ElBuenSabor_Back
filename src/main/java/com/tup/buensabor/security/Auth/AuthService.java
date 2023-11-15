@@ -35,7 +35,7 @@ public class AuthService {
         Usuario usuario = Usuario.builder()
                 .username(request.getUsername())
                 .password(passwordEncoder.encode( request.getPassword()))
-                .role(Role.CLIENTE) //revisar, le puse cliente, en el video le ponia de tipo usuario
+                .role(request.getRol()) //revisar, le puse cliente, en el video le ponia de tipo usuario
                 .auth0Id(request.getAuth0Id())
                 .build();
 
