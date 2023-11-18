@@ -21,14 +21,18 @@ public class AuthService {
     private final AuthenticationManager authenticationManager;
 
 
-    public AuthResponse login(LoginRequest request) {
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
+    public AuthResponse login(LoginRequest request) throws Exception{
+        try {
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
 
-        UserDetails usuario = usuarioRepository.findByUsername(request.getUsername()).orElseThrow();
-        String token = jwtService.getToken(usuario);
-        return AuthResponse.builder()
-                .token(token)
-                .build();
+            UserDetails usuario = usuarioRepository.findByUsername(request.getUsername()).orElseThrow();
+            String token = jwtService.getToken(usuario);
+            return AuthResponse.builder()
+                    .token(token)
+                    .build();
+        } catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
     }
 
     public AuthResponse register(RegisterRequest request) {
