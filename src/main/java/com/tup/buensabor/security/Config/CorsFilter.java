@@ -3,6 +3,8 @@ package com.tup.buensabor.security.Config;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import jakarta.servlet.FilterChain;
@@ -10,6 +12,7 @@ import jakarta.servlet.FilterChain;
 import java.io.IOException;
 
 @Component
+//@Order(Ordered.HIGHEST_PRECEDENCE)  //le acabo de agregar esto pero no se ni q es
 public class CorsFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
