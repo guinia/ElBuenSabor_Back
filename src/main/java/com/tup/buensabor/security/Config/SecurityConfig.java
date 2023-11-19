@@ -11,9 +11,12 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.access.channel.ChannelProcessingFilter;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.security.config.annotation.web.configurers.HeadersConfigurer;
+
+import static org.springframework.security.config.Customizer.withDefaults;
 
 
 @Configuration  //indica q esta clase es de configuracion, va a contener la cadena de filtros
@@ -30,6 +33,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         return http
                 .csrf(csrf -> csrf.disable())
+                .cors(withDefaults())
                 .authorizeHttpRequests(authRequest ->
                         authRequest
                                 //Para autenticacion-->
@@ -50,7 +54,7 @@ public class SecurityConfig {
                                 .requestMatchers(new AntPathRequestMatcher("/api/v1/unidadmedida/**")).hasAnyAuthority("ADMINISTRADOR","COCINERO")
 
                                 //ver si esto se saca
-                                .anyRequest().authenticated()
+                                //.anyRequest().authenticated()
                 )
                 .headers((headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable))) //H2
                 .sessionManagement(sessionManager ->
@@ -59,6 +63,7 @@ public class SecurityConfig {
                         )
                 .authenticationProvider(authProvider)
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+                .addFilter(new CorsFilter())
                 .build();
     }
 }
