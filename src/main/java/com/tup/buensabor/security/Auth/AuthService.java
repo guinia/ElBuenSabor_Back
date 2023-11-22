@@ -20,7 +20,6 @@ public class AuthService {
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
 
-
     public AuthResponse login(LoginRequest request) throws Exception{
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
@@ -40,7 +39,6 @@ public class AuthService {
                 .username(request.getUsername())
                 .password(passwordEncoder.encode( request.getPassword()))
                 .role(request.getRol()) //revisar, le puse cliente, en el video le ponia de tipo usuario
-                .auth0Id(request.getAuth0Id())
                 .build();
 
         usuarioRepository.save(usuario);

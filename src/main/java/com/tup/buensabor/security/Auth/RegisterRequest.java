@@ -18,7 +18,6 @@ public class RegisterRequest {
     String nombre;
     String telefono;
     String email;
-    String auth0Id;
     Role rol;
 
 
